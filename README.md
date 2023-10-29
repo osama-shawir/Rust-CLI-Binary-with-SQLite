@@ -1,3 +1,6 @@
+[![Tests](https://github.com/osama-shawir/Rust-CLI-Binary-with-SQLite/actions/workflows/tests.yml/badge.svg)](https://github.com/osama-shawir/Rust-CLI-Binary-with-SQLite/actions/workflows/tests.yml)
+[![Clippy](https://github.com/osama-shawir/Rust-CLI-Binary-with-SQLite/actions/workflows/lint.yml/badge.svg)](https://github.com/osama-shawir/Rust-CLI-Binary-with-SQLite/actions/workflows/lint.yml)
+
 # SQLite ETL and CRUD in Rust
 
 ![SQLite ETL and CRUD](imgs/pipeline.png)
@@ -28,17 +31,11 @@ The SQLite ETL and CRUD project is a Rust-based command-line application designe
 To utilize this project for your SQLite database needs, follow the steps below:
 
 1. **Clone the Repository** or run this on Codespaces
-2. Build the program using:
+2. Navigate to income_crud_cli directory and build the program using:
 
 ```bash
 cargo build
 ```
-Or use the following command
-
-```bash
-cargo build --release
-```
-To also produce a binary executable
 
 3. Running the Program:
 
@@ -94,6 +91,35 @@ Replace your-ssn with the SSN of the record you want to delete.
 ![delete](imgs/delete.png)
 
 Enjoy the convenience of performing ETL and CRUD operations on your SQLite database with this Rust project. Keep your data organized and up-to-date effortlessly.
+
+4. Building and Downloading Executable:
+
+To build a Rust binary and download it from the terminal, you can use the cargo build command with the --release flag to build an optimized release binary.
+
+```bash
+cargo build --release
+```
+
+This will build an optimized release binary in the target/release directory. Afterwards, you can run the following command to move the executable to the home directory executables folder.
+
+```bash
+cp target/release/my_project ../executables/
+```
+
+![exec](imgs/buildexec.png)
+
+
+## How GitHub Copilot was used to assist in building this project
+
+GitHub Copilot is an AI programming assistant that can assist developers in building projects by providing code suggestions and completing code snippets based on the context of the code being written. In this case, GitHub Copilot was used to translate chunks of code from Python to Rust, which can be a time-consuming and error-prone process. By providing suggestions for Rust code based on the Python code, GitHub Copilot can help speed up the translation process and reduce the likelihood of errors.
+
+In addition to translation, GitHub Copilot also assisted with debugging and proper organization of the project. By providing suggestions for code structure and organization, GitHub Copilot can helped ensure the Rust code is easy to read and maintain.
+
+Furthermore, GitHub Copilot was used to generate boilerplate code that is needed for building CLI tools. This can save developers time and effort by automating the process of creating the basic structure of a CLI tool.
+
+Once the Rust code is written, formatting, linting, and testing are all be automated using GitHub workflows. This helps ensure that the code is properly formatted, adheres to best practices, and is thoroughly tested before being deployed.
+
+Overall, GitHub Copilot was a valuable tool for this Rust project, helping to speed up the coding process, reduce errors, and automate important tasks like formatting, linting, and testing.
 
 Data Source:
 
