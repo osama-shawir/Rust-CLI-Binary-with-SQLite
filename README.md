@@ -97,4 +97,4 @@ Enjoy the convenience of performing ETL and CRUD operations on your SQLite datab
 
 Data Source:
 
-[SQL Murder Mystery by Knight Lab]([https://github.com/NUKnightLab/sql-mysteries])
+[SQL Murder Mystery by Knight Lab](https://github.com/NUKnightLab/sql-mysteries)
