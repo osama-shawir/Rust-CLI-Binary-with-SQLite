@@ -1,6 +1,6 @@
 # SQLite ETL and CRUD in Rust
 
-![SQLite ETL and CRUD](pipeline.png)
+![SQLite ETL and CRUD](imgs/pipeline.png)
 
 The SQLite ETL and CRUD project is a Rust-based command-line application designed for performing ETL (Extract, Transform, Load) operations and CRUD (Create, Read, Update, Delete) actions on an SQLite database. It offers a versatile way to interact with your database, including querying, inserting, updating, and deleting records.
 
