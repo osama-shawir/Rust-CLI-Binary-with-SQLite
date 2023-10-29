@@ -1,64 +1,67 @@
-[![Clippy](https://github.com/osama-shawir/Caesar-Cipher-CLI-in-Rust/actions/workflows/lint.yml/badge.svg)](https://github.com/osama-shawir/Caesar-Cipher-CLI-in-Rust/actions/workflows/lint.yml)
-[![Tests](https://github.com/osama-shawir/Caesar-Cipher-CLI-in-Rust/actions/workflows/tests.yml/badge.svg)](https://github.com/osama-shawir/Caesar-Cipher-CLI-in-Rust/actions/workflows/tests.yml)
+# SQLite ETL and CRUD in Rust
 
-## Caesar Cipher CLI Overview
+![SQLite ETL and CRUD](pipeline.png)
 
-### Uses
+The SQLite ETL and CRUD project is a Rust-based command-line application designed for performing ETL (Extract, Transform, Load) operations and CRUD (Create, Read, Update, Delete) actions on an SQLite database. It offers a versatile way to interact with your database, including querying, inserting, updating, and deleting records.
 
-The Caesar Cipher CLI is a tool for encrypting and decrypting messages using the Caesar cipher. It's a simple and classical encryption technique where each letter in the plaintext is shifted a certain number of places down or up the alphabet.
+## Features
 
-### Command-Line Flags
+- **Query Database:** Retrieve and display data from the SQLite database, with the ability to apply filtering and sorting to the results.
 
-- **--encrypt:**
-  - *Usage:* `--encrypt`
-  - *Description:* Encrypt the specified message using the Caesar cipher.
+- **Insert Data:** Add new records to the database, allowing you to populate it with relevant information.
 
-- **--decrypt:**
-  - *Usage:* `--decrypt`
-  - *Description:* Decrypt the specified message using the Caesar cipher.
+- **Update Records:** Modify existing records, ensuring your database remains up-to-date with the latest data.
 
-- **--message:**
-  - *Usage:* `--message "your_message"`
-  - *Description:* Specify the message to be encrypted or decrypted.
+- **Delete Records:** Remove unwanted records from the database, maintaining data accuracy.
 
-- **--shift:**
-  - *Usage:* `--shift 3`
-  - *Description:* Specify the shift to use for the Caesar cipher. Must be between 1 and 25. The default is 3.
+## How to Use
 
-- **--uppercase:**
-  - *Usage:* `--uppercase`
-  - *Description:* Output the result in uppercase.
+To utilize this project for your SQLite database needs, follow the steps below:
 
-# Caesar Cipher CLI Usage
+1. **Clone the Repository** or run this on Codespaces
+2. Running the Program:
 
-To use the Caesar Cipher CLI, you can either fork this repository or run it in Codespaces. Follow the steps below to encrypt and decrypt messages using the Caesar cipher.
+Ensure that you have Rust and Cargo installed. You can download and install them from the official website.
 
-## Clone the Repository (if not forking or using Codespaces)
+After installation, you can run the program using the cargo run command, along with the appropriate command-line arguments to specify the action you want to perform. Here are some example commands:
+
+### Query the Database:
+
+To retrieve and display data, run:
 
 ```bash
-git clone https://github.com/osama-shawir/Caesar-Cipher-CLI-in-Rust.git
-cd caesar_cipher_cli
+cargo run -- query
 ```
 
-## Running the Program
+This will execute a query and display the requested information. In our case we set it to display the information of the ten people with the highest salaries in the database.
 
-To run the program, you will need to have Rust and Cargo installed on your system. You can download and install Rust and Cargo from the official website: https://www.rust-lang.org/tools/install
+### Insert Data:
 
-Once you have Rust and Cargo installed, you can run the program using the `cargo run` command. The program takes several command-line arguments that specify the message to encrypt or decrypt, the shift value to use for the cipher, and whether to encrypt or decrypt the message.
+To add new records to the database, run:
 
-To encrypt a message, run the following command:
+bash
+Copy code
+cargo run -- insert your-ssn your-annual-income
+Replace your-ssn and your-annual-income with the appropriate values.
+
+### Update Records:
+
+To modify existing records, run:
+
+``` bash
+cargo run -- update your-ssn new-annual-income
+```
+
+Replace your-ssn with the SSN of the record you want to update and new-annual-income with the updated income value.
+
+### Delete Records:
+
+To remove records from the database, run:
 
 ```bash
-cargo run -- --message "Off to the bunker. Every person for themselves" --encrypt --shift 10
-```
-Replace the message text with the message you want to encrypt, and the shift value with the desired shift value. The program will output the encrypted message.
-
-To decrypt a message, run the following command:
-
-```bash
-cargo run -- --message "Ypp dy dro lexuob. Ofobi zobcyx pyb drowcovfoc" --decrypt --shift 10
+cargo run -- delete your-ssn
 ```
 
-Replace the message text with the message you want to decrypt, and the shift value with the shift value used to encrypt the message. The program will output the decrypted message.
+Replace your-ssn with the SSN of the record you want to delete.
 
-Note that the program uses the Caesar cipher, which is a simple substitution cipher that shifts each letter in the message by a fixed number of positions in the alphabet. The shift value must be between 1 and 25, and the program only works with ASCII alphabetic characters. Non-alphabetic characters are left unchanged in the output.
+Enjoy the convenience of performing ETL and CRUD operations on your SQLite database with this Rust project. Keep your data organized and up-to-date effortlessly.
