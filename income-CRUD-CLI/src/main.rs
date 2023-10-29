@@ -33,10 +33,13 @@ fn main() -> Result<()> {
     let conn = Connection::open("sql-murder-mystery.db")?;
 
     match args.cmd {
+
         Command::Query => {
-            let mut stmt = conn.prepare("SELECT * FROM income")?;
+            let mut stmt = conn.prepare("SELECT ssn, annual_income FROM income
+            ORDER BY annual_income DESC
+            LIMIT 10")?;
             let rows = stmt.query_map([], |row| {
-                Ok((row.get::<_, String>(0)?, row.get::<_, f64>(1)?))
+                Ok((row.get::<_, i64>(0)?, row.get::<_, i64>(1)?))
             })?;
 
             for row in rows {
@@ -44,20 +47,41 @@ fn main() -> Result<()> {
                 println!("SSN: {}, Income: {}", ssn, income);
             }
         }
+
         Command::Insert { ssn, income } => {
-            conn.execute(
+            let rows_affected = conn.execute(
                 "INSERT INTO income (ssn, annual_income) VALUES (?1, ?2)",
                 params![ssn, income],
             )?;
+
+            if rows_affected == 1 {
+                println!("Insert operation completed successfully");
+            } else {
+                println!("Insert operation did not affect any rows");
+            }
         }
+
         Command::Update { ssn, income } => {
-            conn.execute(
+            let rows_affected = conn.execute(
                 "UPDATE income SET annual_income = ?1 WHERE SSN = ?2",
                 params![income, ssn],
             )?;
+
+            if rows_affected == 1 {
+                println!("Update operation completed successfully");
+            } else {
+                println!("Update operation did not affect any rows");
+            }
         }
+
         Command::Delete { ssn } => {
-            conn.execute("DELETE FROM income WHERE SSN = ?1", params![ssn])?;
+            let rows_affected = conn.execute("DELETE FROM income WHERE SSN = ?1", params![ssn])?;
+
+            if rows_affected == 1 {
+                println!("Delete operation completed successfully");
+            } else {
+                println!("Delete operation did not affect any rows");
+            }
         }
     }
 
