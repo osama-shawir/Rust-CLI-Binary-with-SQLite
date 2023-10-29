@@ -36,7 +36,7 @@ fn main() -> Result<()> {
         Command::Query => {
             let mut stmt = conn.prepare("SELECT * FROM income")?;
             let rows = stmt.query_map([], |row| {
-                Ok((row.get::<_, String>(0)?, row.get::<_, i64>(1)?))
+                Ok((row.get::<_, String>(0)?, row.get::<_, f64>(1)?))
             })?;
 
             for row in rows {
@@ -46,7 +46,7 @@ fn main() -> Result<()> {
         }
         Command::Insert { ssn, income } => {
             conn.execute(
-                "INSERT INTO income (SSN, annual_income) VALUES (?1, ?2)",
+                "INSERT INTO income (ssn, annual_income) VALUES (?1, ?2)",
                 params![ssn, income],
             )?;
         }
