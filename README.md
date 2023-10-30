@@ -121,6 +121,8 @@ Once the Rust code is written, formatting, linting, and testing are all be autom
 
 Overall, GitHub Copilot was a valuable tool for this Rust project, helping to speed up the coding process, reduce errors, and automate important tasks like formatting, linting, and testing.
 
+### [Youtube Demo for the Project here](https://youtu.be/vCfCQsH-70A)
+
 Data Source:
 
 [SQL Murder Mystery by Knight Lab](https://github.com/NUKnightLab/sql-mysteries)
